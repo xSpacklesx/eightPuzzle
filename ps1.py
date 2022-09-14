@@ -38,6 +38,45 @@ class EightPuzzleState:
 
 # YOUR CODE HERE — add additional methods or functions
 
+def parseString(boardString: str):
+    parsedBoard = [[0,0,0], [0,0,0], [0,0,0]]
+    strPos = 0
+    for i in range(3):
+        for j in range(3):
+            parsedBoard[i][j] = int(boardString[strPos])
+            strPos += 1
+    return parsedBoard
+
+"""Takes in a board string"""
+def manhatDist(bs):
+    manDist = 0
+    strPos = 0
+    for i in range(3):
+        for j in range(3):
+            bint = int(bs[strPos])
+            strPos += 1
+            if bint == 0:
+                manDist += 0
+            elif bint == 1:
+                manDist += (abs(i - 0) + abs(j - 0))
+            elif bint == 2:
+                manDist += (abs(i - 0) + abs(j - 1))
+            elif bint == 3:
+                manDist += (abs(i - 0) + abs(j - 2))
+            elif bint == 4:
+                manDist += (abs(i - 1) + abs(j - 0))
+            elif bint == 5:
+                manDist += (abs(i - 1) + abs(j - 1))
+            elif bint == 6:
+                manDist += (abs(i - 1) + abs(j - 2))
+            elif bint == 7:
+                manDist += (abs(i - 2) + abs(j - 0))
+            elif bint == 8:
+                manDist += (abs(i - 2) + abs(j - 1))
+
+    
+    return(manDist)
+
 
 def solution(puzzle_description: str) -> list[EightPuzzleState]:
     """
@@ -45,6 +84,8 @@ def solution(puzzle_description: str) -> list[EightPuzzleState]:
     puzzle_description: a string describing the puzzle to solve in the form 123450786 where 0 is the blank space, and it is assumed that each row is 3 characters long.
     """
     # YOUR CODE HERE
+    manhatDist(puzzle_description)
+    return parseString(puzzle_description)
 
 
 if __name__ == "__main__":
