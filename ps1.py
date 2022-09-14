@@ -73,8 +73,6 @@ def manhatDist(bs):
                 manDist += (abs(i - 2) + abs(j - 0))
             elif bint == 8:
                 manDist += (abs(i - 2) + abs(j - 1))
-
-    
     return(manDist)
 
 
